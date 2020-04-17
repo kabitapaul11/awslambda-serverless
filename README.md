@@ -14,21 +14,21 @@ import json
 import sys
 import os
 
-DYNAMODB = boto3.resource('dynamodb')
-TABLE = "fang"
-QUEUE = "producer"
-SQS = boto3.client("sqs")
+    DYNAMODB = boto3.resource('dynamodb')
+    TABLE = "fang"
+    QUEUE = "producer"
+    SQS = boto3.client("sqs")
 
-#SETUP LOGGING
-import logging
-from pythonjsonlogger import jsonlogger
+    #SETUP LOGGING
+    import logging
+    from pythonjsonlogger import jsonlogger
 
-LOG = logging.getLogger()
-LOG.setLevel(logging.INFO)
-logHandler = logging.StreamHandler()
-formatter = jsonlogger.JsonFormatter()
-logHandler.setFormatter(formatter)
-LOG.addHandler(logHandler)
+    LOG = logging.getLogger()
+    LOG.setLevel(logging.INFO)
+    logHandler = logging.StreamHandler()
+    formatter = jsonlogger.JsonFormatter()
+    logHandler.setFormatter(formatter)
+    LOG.addHandler(logHandler)
 
     def scan_table(table):
     LOG.info(f"Scanning Table {table}")
